@@ -20,10 +20,12 @@ const Todolist = () => {
     // spread operator is used imbis na i modify ung original array directly: 
 
     const saveTask = (taskObj) => {
-        
-        setTaskList([...taskList, taskObj]);
-        setModal(false);
-    };
+        let tempList = taskList
+        tempList.push(taskObj)
+        localStorage.setItem("taskList", JSON.stringify(tempList))
+        setTaskList(taskList)
+        setModal(false)
+    }
 
     return (
         <>
