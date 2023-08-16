@@ -1,8 +1,23 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {useState } from "react";
+
+const CreateTaskPopup = ({modal, toggle}) => {
+    const [taskName, setTaskName] = useState('');
+    const [description, setDescription] = useState('');
+
+    const handleChange =(e) =>{ //default parameter please francis dont change
+    
+        const {name, value} = e.target
+        if(name ==="taskName"){
+            setTaskName(value)
+
+        }else{
+            setDescription(value)
+        }
+    }
 
 
-const createTask = ({modal, toggle}) => {
     return (
         <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>MODAL IS ALIVE</ModalHeader>
@@ -12,14 +27,16 @@ const createTask = ({modal, toggle}) => {
                 <form>
 
                     <div className = "form-group">
-                        <input type="text" className = "form-control"/>
-
+                        <label>Description</label>
+                        <input type="text" className = "form-control" value = {taskName} onChange = {handleChange} name = "taskName"/>
                     </div>
 
-                    <div ClassName = "form-group">
-                        <textarea rows = "7" ClassName = "form-control"> </textarea>
-
+                    <div className = "form-group">
+                    <label>Description2</label>
+                        <textarea rows = "5" className = "form-control" value = {description} onChange = {handleChange} name = "taskDescription"></textarea>
                     </div>
+
+                    
 
 
                 </form>
@@ -40,4 +57,4 @@ const createTask = ({modal, toggle}) => {
     );
 };
 
-export default createTask;
+export default CreateTaskPopup;
