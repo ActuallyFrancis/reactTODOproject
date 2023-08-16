@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {useState } from "react";
 
-const CreateTaskPopup = ({modal, toggle}) => {
+const CreateTaskPopup = ({modal, toggle, save}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -15,6 +15,14 @@ const CreateTaskPopup = ({modal, toggle}) => {
         }else{
             setDescription(value)
         }
+
+    }
+
+    const handleSave = () => {
+        let taskObj = {}
+        taskObj["Name"] = taskName
+        taskObj["Description"] = description
+        save(taskObj)
     }
 
 
@@ -46,12 +54,8 @@ const CreateTaskPopup = ({modal, toggle}) => {
             </ModalBody>
 
             <ModalFooter>
-            <Button color="primary" onClick={toggle}>
-                Confirm
-            </Button>{' '}
-            <Button color="secondary" onClick={toggle}>
-                Cancel
-            </Button>
+            <Button color="primary" onClick={handleSave}>Confirm</Button>{' '}
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>
     );
