@@ -17,6 +17,7 @@ const TodoList = () => {
         }
     }, []) //prevnet form running multiple instances
 
+    
 
     const deleteTask = (index) => {
         let tempList = taskList
@@ -57,9 +58,10 @@ const TodoList = () => {
 
     return (
         <>
+            
             <div className = "header text-center">
                 <h3>Todo List</h3>
-                <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Task</button>
+                <button className = "btn btn-success mt-2" onClick = {() => setModal(true)} >Create Task</button>
             </div>
             <div className = "task-container">
             {taskList && taskList.map((obj , index) => <Card taskObj = {obj} index = {index} deleteTask = {deleteTask} updateListArray = {updateListArray}/> )}
@@ -67,6 +69,10 @@ const TodoList = () => {
             <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
         </>
     );
+    
+
+      
+
 };
 
 export default TodoList;
