@@ -60,7 +60,7 @@ const TodoList = () => {
         <>
             
             <div className = "header text-center">
-                <h3>Todo List</h3>
+            <h3 className="todo-list-title">Todo List</h3> {/* Add the custom class */}
                 <button className = "btn btn-success mt-2" onClick = {() => setModal(true)} >Create Task</button>
             </div>
             <div className = "task-container">

@@ -72,3 +72,8 @@
   background-color: #85568b;
   padding : 40px 100px;
 }
+
+.todo-list-title {
+  font-family: 'Press Start 2P', cursive; /* Replace 'FontName' with the actual font name */
+  /* Add any other font-related styling here */
+}
