@@ -1,27 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import CreateTask from '../modals/CreateTask';
+import CreateTask from '../modals/CreateTask'
 import Card from './Card';
 
-//PARENTTTT
-
-const Todolist = () => {
+//parent 
+const TodoList = () => {
     const [modal, setModal] = useState(false);
     const [taskList, setTaskList] = useState([])
-
-
     
-    //fetch all task from localstorage
-
     useEffect(() => {
         let arr = localStorage.getItem("taskList")
-        
+       
         if(arr){
             let obj = JSON.parse(arr)
             setTaskList(obj)
-
-
         }
-    }, []) //runs it once
+    }, []) //prevnet form running multiple instances
 
 
     const deleteTask = (index) => {
@@ -75,4 +68,4 @@ const Todolist = () => {
     );
 };
 
-export default Todolist;
+export default TodoList;
